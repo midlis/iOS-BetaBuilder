@@ -345,15 +345,6 @@
         savedSuccessfully = YES;
     }
     
-    //Create Archived Version for 3.0 Apps
-    ZipArchive* zip = [[ZipArchive alloc] init];
-    [zip CreateZipFile2:[[saveDirectoryURL path] stringByAppendingPathComponent:@"beta_archive.zip"]];
-    [zip addFileToZip:[self.archiveIPAFilenameField stringValue] newname:@"application.ipa"];
-    [zip addFileToZip:self.mobileProvisionFilePath newname:@"beta_provision.mobileprovision"];
-    if(![zip CloseZipFile2]) {
-        NSLog(@"Error Creating 3.x Zip File");
-    }
-    
     return savedSuccessfully;
 }
 
